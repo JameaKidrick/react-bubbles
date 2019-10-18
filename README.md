@@ -29,9 +29,17 @@ In this project you will create a login page and request a token from the server
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain what a token is used for.
+  `A token is used by JWT as a tool for authentication instead of checking for the correct login information.`
 - [ ] What steps can you take in your web apps to keep your data secure?
+  `Make sure to store sensitive information as encrypted text`
+  `Make sure to use secure routes to form pages so information can't be leaked after filling it out `
 - [ ] Describe how web servers work.
+  `Servers hold code for websites to be shared on any computer. So, we tell it to *serve* the web page to the user using the code you give it.`
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+  `C - CREATE - .post`
+  `R - READ - .get`
+  `U - UPDATE - .put`
+  `D - DELETE - .delete`
 
 
 ## Project Set Up
