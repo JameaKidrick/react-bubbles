@@ -36,9 +36,11 @@ const ColorList = ({ colors, updateColors, fetchColor }) => {
       .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(() => {
         fetchColor()
+        setColorToEdit({color: "", code: { hex: "" }})
+        setEditing(!editing)
       })
       .catch(error => console.log(error))
-      setColorToEdit({color: "", code: { hex: "" }})
+      
   }
 
   const deleteColor = color => {
@@ -56,6 +58,8 @@ const ColorList = ({ colors, updateColors, fetchColor }) => {
       .then(response => {
         console.log(response)
         fetchColor()
+        setNewColor({color: "", code: { hex: "" }})
+        setAdd(!add)
       })
       .catch(error => console.log(error))
   }
