@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { Button, Form, TextInput, Box } from "grommet";
 
 const Login = props => {
   // make a post request to retrieve a token from the api
@@ -22,27 +23,30 @@ const Login = props => {
       .catch(error => console.log(error))
   }
 
-  return (
-    <>
-      <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type='text'
+    return (
+    <div style={{margin:'0 auto'}}>
+      <h1 style={{textAlign:'center', height:'45px'}}>Welcome to the Bubble App!</h1>
+      <Form onSubmit={handleSubmit} style={{height:'300px', display:'flex', flexDirection:'column', flexWrap:'wrap', alignItems:'flex-start'}}>
+        <TextInput
+          // type='text'
           name='username'
           placeholder='Username'
           onChange={handleChange}
+          style={{width:'75%', margin:'20px'}}
         />
-        <input 
-        type='password'
+        <TextInput
+        // type='password'
         name='password'
         placeholder='Password'
         onChange={handleChange}
+        style={{width:'75%', margin:'20px'}}
         />
-        <button>Login</button>
-      </form>
-    </>
+        <Button label='login' style={{width:'30%', margin:'0 250px'}} />
+      </Form>
+    </div>
   );
 };
 
 export default Login;
+
+

@@ -15,13 +15,13 @@ function App() {
         <ul style={{listStyleType:'none', textAlign:'left', marginRight:'10px'}}>
           <li>
             <Link to='/' style={{textDecoration:'none', color:'black', }}>
-            Login
+            login
             </Link>
           </li>
           <br />
           <li>
             <Link to='/bubbles' style={{textDecoration:'none', color:'black'}}>
-            Bubble Page
+            bubble page
             </Link>
           </li>
         </ul>
