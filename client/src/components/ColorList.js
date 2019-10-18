@@ -55,6 +55,7 @@ const ColorList = ({ colors, updateColors, fetchColor }) => {
       .post(`/api/colors`, newColor)
       .then(response => {
         console.log(response)
+        fetchColor()
       })
       .catch(error => console.log(error))
   }
@@ -78,6 +79,12 @@ const ColorList = ({ colors, updateColors, fetchColor }) => {
           </li>
         ))}
       </ul>
+      
+      {!add && (
+        <div>
+          <p onClick={() => addNewColor()} style={{cursor:'pointer', color: 'rgb(50,205,50)'}}>+ add color</p>
+        </div>
+      )}
       {editing && (
         <form onSubmit={saveEdit}>
           <legend>edit color</legend>
@@ -108,19 +115,16 @@ const ColorList = ({ colors, updateColors, fetchColor }) => {
           </div>
         </form>
       )}
-      <button onClick={() => addNewColor()}>{!add ? 'Add Color' : 'Cancel'}</button>
-      {/* <div className="spacer" /> */}
       {add && (
-        <div>ADD FORM</div>
         <form onSubmit={handleNewColor}>
-          <legend>edit color</legend>
+          <legend>add color</legend>
           <label>
             color name:
             <input
               onChange={e =>
-                setNewColor({ ...colorToEdit, color: e.target.value })
+                setNewColor({ ...newColor, color: e.target.value })
               }
-              value={colorToEdit.color}
+              value={newColor.color}
             />
           </label>
           <label>
@@ -128,16 +132,16 @@ const ColorList = ({ colors, updateColors, fetchColor }) => {
             <input
               onChange={e =>
                 setNewColor({
-                  ...colorToEdit,
+                  ...newColor,
                   code: { hex: e.target.value }
                 })
               }
-              value={colorToEdit.code.hex}
+              value={newColor.code.hex}
             />
           </label>
           <div className="button-row">
-            <button type="submit">save</button>
-            <button onClick={() => setEditing(false)}>cancel</button>
+            <button type="submit">add</button>
+            <button onClick={() => setAdd(!add)}>cancel</button>
           </div>
         </form>
       )}
